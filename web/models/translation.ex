@@ -3,15 +3,15 @@ defmodule WordlogElixer.Translation do
   @derive {Poison.Encoder, except: [:__meta__]}
 
   schema "translations" do
+    field :word_id, :integer
     field :translation_string
     field :locale
-
-    belongs_to :word, WordlogElixer.Word
+    #belongs_to :word, WordlogElixer.Word
 
     timestamps
   end
 
-  @required_fields ~w(word_id translation_string locale)
+  @required_fields ~w(translation_string locale)
   @optional_fields ~w()
 
   def changeset(model, params \\ :empty) do

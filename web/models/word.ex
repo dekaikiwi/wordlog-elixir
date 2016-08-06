@@ -3,8 +3,8 @@ defmodule WordlogElixer.Word do
   @derive {Poison.Encoder, except: [:__meta__]}
 
   schema "words" do
-    field :word_string
-    has_many :translations, WordlogElixer.Translation
+    field      :word_string
+    has_many   :translations, WordlogElixer.Translation
     timestamps
   end
 
