@@ -4,11 +4,15 @@ defmodule WordlogElixer.WordController do
   alias WordlogElixer.Word
 
   plug :scrub_params, "word" when action in [:create, :update]
-  plug :action
 
   def index(conn, _params) do
     words = Repo.all(Word) |> Repo.preload(:translations)
     render conn, words: words
+  end
+
+  def show(conn, %{"id" => id}) do
+    word = Repo.get!(Word, id) |> Repo.preload(:translations)
+    render(conn, "show.json", word: word)
   end
 
   def create(conn, %{"word" => word_params}) do
@@ -18,8 +22,8 @@ defmodule WordlogElixer.WordController do
       {:ok, word} ->
         conn
         |> put_status(:created)
-#        |> put_resp_header("location", todo_path(conn, :show, todo))
-#        |> render("show.json", todo: todo)
+        |> put_resp_header("location", word_path(conn, :show, word))
+        |> render("show.json", word: word |> Repo.preload(:translations))
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

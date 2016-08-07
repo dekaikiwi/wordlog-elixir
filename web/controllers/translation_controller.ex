@@ -5,7 +5,6 @@ defmodule WordlogElixer.TranslationController do
   alias WordlogElixer.Translation
 
   plug :scrub_params, "translation" when action in [:create, :update]
-  plug :action
 
   def index(conn, _params) do
     translations = Repo.all(Translation) |> Repo.preload(:word)

@@ -27,8 +27,12 @@ defmodule WordlogElixer.Router do
   scope "/api", WordlogElixer do
     pipe_through :api
 
-    resources "/words", WordController do
-      resources "/translations", TranslationController
+    resources "/lists", ListController, only: [:index, :show, :create] do
+      post "/words", ListController, :add_word
+    end
+
+    resources "/words", WordController, only: [:index, :show, :create] do
+      resources "/translations", TranslationController, only: [:create]
     end
   end
 
