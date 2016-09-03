@@ -1,6 +1,8 @@
 defmodule WordlogElixer.Endpoint do
   use Phoenix.Endpoint, otp_app: :wordlog_elixer
 
+  plug CORSPlug
+
   socket "/socket", WordlogElixer.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
