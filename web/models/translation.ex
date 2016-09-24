@@ -5,7 +5,6 @@ defmodule WordlogElixer.Translation do
   schema "translations" do
     field :word_id, :integer
     field :translation_string
-    field :locale
     #belongs_to :word, WordlogElixer.Word
 
     timestamps

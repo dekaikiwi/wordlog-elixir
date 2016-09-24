@@ -4,6 +4,7 @@ defmodule WordlogElixer.Word do
 
   schema "words" do
     field      :word_string
+    field      :locale
     has_many   :translations, WordlogElixer.Translation
     timestamps
   end
