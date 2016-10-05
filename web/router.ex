@@ -34,6 +34,8 @@ defmodule WordlogElixer.Router do
     resources "/words", WordController, only: [:index, :show, :create] do
       resources "/translations", TranslationController, only: [:create]
     end
+
+    get "/search/jisho/:word", SearchController, :search_jisho
   end
 
   # Other scopes may use custom stacks.
