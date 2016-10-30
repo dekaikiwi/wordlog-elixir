@@ -10,7 +10,7 @@ defmodule WordlogElixer.Translation do
     timestamps
   end
 
-  @required_fields ~w(translation_string locale)
+  @required_fields ~w(translation_string)
   @optional_fields ~w()
 
   def changeset(model, params \\ :empty) do

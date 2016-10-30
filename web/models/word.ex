@@ -9,11 +9,12 @@ defmodule WordlogElixer.Word do
     timestamps
   end
 
-  @required_fields ~w(word_string)
-  @optional_fields ~w()
+  @required_fields ~w(word_string locale)a
+  @optional_fields ~w()a
 
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> cast_assoc(:translations, required: false)
   end
 end
