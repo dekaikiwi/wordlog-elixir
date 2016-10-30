@@ -4,6 +4,7 @@ defmodule WordlogElixer.WordController do
   alias WordlogElixer.Word
 
   plug :scrub_params, "word" when action in [:create, :update]
+  plug WordlogElixer.Authentication when action in [:create, :update]
 
   def index(conn, _params) do
     words = Repo.all(Word) |> Repo.preload(:translations)

@@ -17,3 +17,7 @@ config :wordlog_elixer, WordlogElixer.Repo,
   database: "wordlog_elixer_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+#Tone down bcrypt to speed up tests
+config :comeonin, :bcrypt_log_rounds, 4
+config :comeonin, :pbkdf2_rounds, 1
