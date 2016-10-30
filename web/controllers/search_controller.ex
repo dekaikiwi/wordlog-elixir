@@ -1,6 +1,8 @@
 defmodule WordlogElixer.SearchController do
   use WordlogElixer.Web, :controller
 
+  plug WordlogElixer.Authentication
+
   def search_jisho(conn, %{"word" => word}) do
     word = URI.encode(word)
     response = HTTPotion.get "http://jisho.org/api/v1/search/words?keyword=#{word}"
