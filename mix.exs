@@ -19,7 +19,7 @@ defmodule WordlogElixer.Mixfile do
   def application do
     [mod: {WordlogElixer, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpotion]]
+                    :phoenix_ecto, :postgrex, :httpotion, :rollbax]]
   end
 
   # Specifies which paths to compile per environment.
@@ -41,7 +41,8 @@ defmodule WordlogElixer.Mixfile do
      {:cors_plug, "~> 1.1"},
      {:comeonin, "~> 2.0"},
      {:secure_random, "~> 0.2"},
-     {:httpotion, "~> 3.0.2"}]
+     {:httpotion, "~> 3.0.2"},
+     {:rollbax, "~> 0.6"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
