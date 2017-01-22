@@ -35,20 +35,20 @@ defmodule WordlogElixer.ListController do
     end
   end
 
-  def add_word(conn, %{"list_word" => list_word_params, "list_id" => list_id}) do
+  def add_word(conn, %{"word_id" => word_id, "list_id" => list_id}) do
 
-    list_word_params = Map.merge(list_word_params, %{"list_id" => list_id})
+    list_word_params = Map.merge(%{"word_id" => word_id} , %{"list_id" => list_id})
     changeset = ListWord.changeset(%ListWord{}, list_word_params)
 
     case Repo.insert(changeset) do
       {:ok, list} ->
         conn
         |> put_status(:created)
-
+        |> render(WordlogElixer.ListView, "list_word_success.json", _: "")
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(WordlogElixer.ChangesetView, "error.json", changeset: changeset)
+        |> render(WordlogElixer.ErrorView, "error.json", changeset: changeset)
     end
   end
 

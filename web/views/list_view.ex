@@ -9,4 +9,8 @@ defmodule WordlogElixer.ListView do
     list
   end
 
+  def render("list_word_success.json", _) do
+    %{ success: true }
+  end
+
 end
