@@ -1,0 +1,15 @@
+<h1>Lists</h1>
+
+<table>
+  <tr>
+    <th>List Name</th>
+    <th>Description</th>
+  </tr>
+  <%= for list <- @lists do %>
+  <tr>
+    <td><%= list.name %></td>
+    <td><%= list.description %></td>
+    <td><%= link "View", to: list_path(@conn, :show, list.id) %></td>
+  </tr>
+  <%= end %>
+</table>

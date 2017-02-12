@@ -17,7 +17,7 @@ defmodule WordlogElixer.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/lists", UserController, :index
+    resources "/lists", ListController, only: [:index, :show, :new, :create]
   end
 
   scope "/api", WordlogElixer do

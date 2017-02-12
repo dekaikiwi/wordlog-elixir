@@ -1,0 +1,17 @@
+<h1>List: <%= @list.name %></h1>
+
+<h3>Words</h3>
+<table>
+  <%= for word <- @list.words do %>
+  <tr>
+    <td><%= word.word_string %></td>
+    <td>
+      <ul>
+    <%= for translation <- word.translations do %>
+      <li><%= translation.translation_string %></li>
+    <%= end %>
+      </ul>
+    </td>
+  </tr>
+  <%= end %>
+</table>
