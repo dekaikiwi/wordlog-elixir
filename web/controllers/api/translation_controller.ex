@@ -1,4 +1,4 @@
-defmodule WordlogElixer.TranslationController do
+defmodule WordlogElixer.Api.TranslationController do
 
   use WordlogElixer.Web, :controller
   alias WordlogElixer.Repo

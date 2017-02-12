@@ -1,4 +1,4 @@
-defmodule WordlogElixer.SearchController do
+defmodule WordlogElixer.Api.SearchController do
   use WordlogElixer.Web, :controller
 
   plug WordlogElixer.Authentication

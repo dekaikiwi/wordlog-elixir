@@ -1,4 +1,4 @@
-defmodule WordlogElixer.ListView do
+defmodule WordlogElixer.Api.ListView do
   use WordlogElixer.Web, :view
 
   def render("index.json", %{lists: lists}) do

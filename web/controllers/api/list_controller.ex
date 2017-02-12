@@ -1,4 +1,4 @@
-defmodule WordlogElixer.ListController do
+defmodule WordlogElixer.Api.ListController do
   use WordlogElixer.Web, :controller
 
   alias WordlogElixer.Repo
@@ -44,7 +44,7 @@ defmodule WordlogElixer.ListController do
       {:ok, list} ->
         conn
         |> put_status(:created)
-        |> render(WordlogElixer.ListView, "list_word_success.json", _: "")
+        |> render(WordlogElixer.Api.ListView, "list_word_success.json", _: "")
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

@@ -1,4 +1,4 @@
-defmodule WordlogElixer.WordController do
+defmodule WordlogElixer.Api.WordController do
   use WordlogElixer.Web, :controller
   alias WordlogElixer.Repo
   alias WordlogElixer.Word

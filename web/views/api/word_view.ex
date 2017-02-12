@@ -1,4 +1,4 @@
-defmodule WordlogElixer.WordView do
+defmodule WordlogElixer.Api.WordView do
   use WordlogElixer.Web, :view
 
   def render("index.json", %{words: words}) do

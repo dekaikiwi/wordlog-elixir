@@ -17,23 +17,24 @@ defmodule WordlogElixer.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/lists", UserController, :index
   end
 
   scope "/api", WordlogElixer do
     pipe_through :api
 
-    resources "/lists", ListController, only: [:index, :show, :create] do
-      post "/words", ListController, :add_word
+    resources "/lists", Api.ListController, only: [:index, :show, :create] do
+      post "/words", Api.ListController, :add_word
     end
 
-    resources "/words", WordController, only: [:index, :show, :create] do
-      resources "/translations", TranslationController, only: [:create]
+    resources "/words", Api.WordController, only: [:index, :show, :create] do
+      resources "/translations", Api.TranslationController, only: [:create]
     end
 
-    get "/search/jisho/:word", SearchController, :search_jisho
+    get "/search/jisho/:word", Api.SearchController, :search_jisho
 
-    resources "/users", UserController, only: [:create]
-    resources "/sessions", SessionController, only: [:create]
+    resources "/users", Api.UserController, only: [:create]
+    resources "/sessions", Api.SessionController, only: [:create]
   end
 
   # Other scopes may use custom stacks.

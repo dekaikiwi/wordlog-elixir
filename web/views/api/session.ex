@@ -1,5 +1,5 @@
 # web/views/session_view.ex
-defmodule WordlogElixer.SessionView do
+defmodule WordlogElixer.Api.SessionView do
   use WordlogElixer.Web, :view
 
   def render("show.json", %{session: session}) do

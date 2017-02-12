@@ -1,4 +1,4 @@
-defmodule WordlogElixer.UserView do
+defmodule WordlogElixer.Api.UserView do
   use WordlogElixer.Web, :view
 
   def render("show.json", %{user: user}) do

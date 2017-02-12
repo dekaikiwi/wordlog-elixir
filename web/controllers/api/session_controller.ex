@@ -1,4 +1,4 @@
-defmodule WordlogElixer.SessionController do
+defmodule WordlogElixer.Api.SessionController do
   use WordlogElixer.Web, :controller
 
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]

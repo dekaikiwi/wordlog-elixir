@@ -1,4 +1,4 @@
-defmodule WordlogElixer.UserController do
+defmodule WordlogElixer.Api.UserController do
   use WordlogElixer.Web, :controller
 
   alias WordlogElixer.User
@@ -19,4 +19,6 @@ defmodule WordlogElixer.UserController do
         |> render(WordlogElixer.ChangesetView, "error.json", changeset: changeset)
     end
   end
+
+  def index()
 end
